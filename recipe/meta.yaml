@@ -1,0 +1,83 @@
+{% set name = "snowflake-ml-python" %}
+{% set version = "1.0.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: cfd217974231021f148d92564dfd0db8e11dad59b3b791d4a0a244ff1762f284
+  patches:
+    - remove-tf-and-pytorch.patch            # [win64 or (osx and x86_64)]
+    - fix-windows-build.patch                # [win64]
+
+build:
+  number: 0
+  # Skip 3.11 because of tensorflow and a few others.
+  skip: True # [py<38 or py>310]
+  # Skip Windows (on CI) because it needs a manual build for now.
+  skip: True # [win]
+
+requirements:
+  build:
+    - patch       # [osx and x86_64]
+    - m2-patch    # [win64]
+    - bazel 6.2.0
+    - {{ compiler('c') }}
+  host:
+    - pip
+    - wheel
+    - python
+    - setuptools
+    - bazel 6.2.0
+  run:
+    - python
+    - absl-py >=0.15,<2
+    - anyio >=3.5.0,<4
+    - boto3
+    - cloudpickle
+    - conda-libmamba-solver >=23.1.0,<24
+    - cryptography >=3.1.0,<39.0.0
+    - fsspec >=2022.11,<=2023.1
+    - inflection
+    - moto
+    - numpy >=1.23,<2
+    - packaging >=20.9,<24
+    - pandas >=1.0.0,<2
+    - pyyaml >=6.0,<7
+    - scikit-learn >=1.2.1,<2
+    - scipy >=1.9,<2
+    - snowflake-connector-python >=3.0.3,<4
+    - snowflake-snowpark-python >=1.4.0,<2
+    - sqlparse >=0.4,<1
+    - typing-extensions >=4.1.0,<5
+    - xgboost >=1.7.3,<2
+  run_constrained:
+    - lightgbm==3.3.5
+    - tensorflow >=2.9,<3
+    - torchdata >=0.4,<1
+
+test:
+  imports:
+    - snowflake.ml
+  requires:
+    - pip
+  commands:
+    - pip check
+
+about:
+  home: https://github.com/snowflakedb/snowflake-ml-python
+  summary: Snowflake machine learning library.
+  license: Apache-2.0
+  license_family: Apache
+  description: |
+    The machine learning client library that is used for interacting with Snowflake
+    to build machine learning solutions. Functionalities include model uploading,
+    training, feature engineering, etc.
+  dev_url: https://github.com/snowflakedb/snowflake-ml-python
+  doc_url: https://docs.snowflake.com/developer-guide/snowpark-ml/index
+
+extra:
+  recipe-maintainers:
+    - sumit0190
