@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: cfd217974231021f148d92564dfd0db8e11dad59b3b791d4a0a244ff1762f284
+  sha256: 24533a30400d1a138eb6984c8d3b56bf4a1f831773d88910438eed97d89f52ef
   patches:
     - remove-tf-and-pytorch.patch            # [win64 or (osx and x86_64)]
     - fix-windows-build.patch                # [win64]
@@ -38,7 +38,6 @@ requirements:
     - boto3
     - cloudpickle
     - conda-libmamba-solver >=23.1.0,<24
-    - cryptography >=3.1.0,<39.0.0
     - fsspec >=2022.11,<=2023.1
     - inflection
     - moto
