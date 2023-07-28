@@ -1,38 +1,40 @@
 diff --git a/conda-env-snowflake.yml b/conda-env-snowflake.yml
-index ea076b9..04257d7 100644
+index d8639f7..f953421 100644
 --- a/conda-env-snowflake.yml
 +++ b/conda-env-snowflake.yml
-@@ -28,7 +28,6 @@ dependencies:
+@@ -27,7 +27,6 @@ dependencies:
  - pandas==1.4.4
  - pytest==7.1.2
  - python==3.8.13
--- pytorch==1.12.1
+-- pytorch==1.13.1
  - pyyaml==6.0
  - ruamel.yaml==0.17.21
  - s3fs==2022.11.0
-@@ -37,6 +36,5 @@ dependencies:
+@@ -36,7 +35,6 @@ dependencies:
  - snowflake-connector-python==3.0.3
  - snowflake-snowpark-python==1.4.0
  - sqlparse==0.4.3
 -- tensorflow==2.11.0
+ - torchdata==0.5.1
+ - transformers==4.29.2
  - typing-extensions==4.5.0
- - xgboost==1.7.3
 diff --git a/conda-env.yml b/conda-env.yml
-index bd85cf8..c0b95d2 100644
+index 367f40c..8a8f8bb 100644
 --- a/conda-env.yml
 +++ b/conda-env.yml
-@@ -32,7 +32,6 @@ dependencies:
+@@ -29,7 +29,6 @@ dependencies:
  - pandas==1.4.4
  - pytest==7.1.2
  - python==3.8.13
--- pytorch==1.12.1
+-- pytorch==1.13.1
  - pyyaml==6.0
  - ruamel.yaml==0.17.21
  - s3fs==2022.11.0
-@@ -41,6 +40,5 @@ dependencies:
+@@ -38,7 +37,6 @@ dependencies:
  - snowflake-connector-python==3.0.3
  - snowflake-snowpark-python==1.4.0
  - sqlparse==0.4.3
 -- tensorflow==2.11.0
+ - torchdata==0.5.1
+ - transformers==4.29.2
  - typing-extensions==4.5.0
- - xgboost==1.7.3
