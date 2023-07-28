@@ -18,9 +18,12 @@ build:
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
   skip: True # [win]
+  # Skip s390x and ppc64 since they lack bazel.
+  skip: True # [s390x or ppc64le]
 
 requirements:
   build:
+    - git         # [not win]
     - patch       # [osx and x86_64]
     - m2-patch    # [win64]
     - bazel 6.2.0
@@ -70,6 +73,7 @@ about:
   summary: Snowflake machine learning library.
   license: Apache-2.0
   license_family: Apache
+  license_file: LICENSE.txt
   description: |
     The machine learning client library that is used for interacting with Snowflake
     to build machine learning solutions. Functionalities include model uploading,
