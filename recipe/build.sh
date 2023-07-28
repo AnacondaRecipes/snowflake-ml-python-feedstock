@@ -1,10 +1,10 @@
 # This hack is necessary because bazel produces a Python script with
-# "#! /usr/bin/python" at the top. On CI systems this is a problem,
+# "#! /usr/bin/python3" at the top. On CI systems this is a problem,
 # but only on Linux.
 if [ "$(uname)" == "Linux" ]; then
-    if [! -f /usr/bin/python ] || [ -L /usr/bin/python ]; then
-        rm /usr/bin/python || true
-        ln -s %PYTHON% python
+    if [! -f /usr/bin/python3 ] || [ -L /usr/bin/python3 ]; then
+        rm /usr/bin/python3 || true
+        ln -s %PYTHON% python3
     fi
 fi
 
