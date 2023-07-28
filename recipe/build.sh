@@ -2,7 +2,7 @@
 # "#! /usr/bin/python3" at the top. On CI systems this is a problem,
 # but only on Linux.
 if [ "$(uname)" == "Linux" ]; then
-    if [! -f /usr/bin/python3 ] || [ -L /usr/bin/python3 ]; then
+    if [ ! -f /usr/bin/python3 ] || [ -L /usr/bin/python3 ]; then
         rm /usr/bin/python3 || true
         ln -s %PYTHON% python3
     fi
