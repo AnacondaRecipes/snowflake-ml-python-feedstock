@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.4" %}
+{% set version = "1.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a1ded7e281af0655fcd3d421d9acaceda9f09f4e47a86af4d961137eb9caedea
+  sha256: 6badcd1d89e9562d0f2ad3ce67129431c299458e68c32cf71de00ef7b8d31206
   patches:
     - remove-tf-and-pytorch.patch            # [win64 or (osx and x86_64)]
     - fix-windows-build.patch                # [win64]
@@ -37,9 +37,12 @@ requirements:
   run:
     - python
     - absl-py >=0.15,<2
+    - aiohttp !=4.0.0a0, !=4.0.0a1
     - anyio >=3.5.0,<4
     - boto3
     - cloudpickle
+    - cryptography
+    - coverage
     - fsspec >=2022.11,<=2023.1
     - inflection
     - moto
@@ -47,6 +50,7 @@ requirements:
     - packaging >=20.9,<24
     - pandas >=1.0.0,<2
     - pyyaml >=6.0,<7
+    - requests
     - scikit-learn >=1.2.1,<1.3
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.0.3,<4
