@@ -9,7 +9,6 @@ source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 6badcd1d89e9562d0f2ad3ce67129431c299458e68c32cf71de00ef7b8d31206
   patches:
-    # - remove-tf-and-pytorch.patch            # [win64 or (osx and x86_64)]
     - fix-windows-build.patch                # [win64]
 
 build:
