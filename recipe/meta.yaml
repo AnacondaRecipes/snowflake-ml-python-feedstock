@@ -5,27 +5,27 @@ package:
   name: {{ name|lower }}
   version: {{ version }}
 
-source:
+ssource:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 6badcd1d89e9562d0f2ad3ce67129431c299458e68c32cf71de00ef7b8d31206
+  patches:
+    - remove-tf-and-pytorch.patch            # [win64 or (osx and x86_64)]
+    - fix-windows-build.patch                # [win64]
 
 build:
   number: 0
   # Skip 3.11 because of tensorflow and a few others.
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
-  skip: True # [win]
   # Skip s390x and ppc64 since they lack bazel.
-  skip: True # [s390x or ppc64le]
+  skip: True # [s390x or ppc64le or win]
+
 
 requirements:
   build:
     - git         # [not win]
-    - bazel 6.2.0
-    - {{ compiler('c') }}
-  host:
-    - pip
-    - wheel
+    - patch       # [osx and x86_64]
+    - m2-patch    # [win64]
     - python
     - setuptools
     - bazel 6.2.0
