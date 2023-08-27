@@ -17,10 +17,11 @@ build:
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
-  skip: True # [s390x or ppc64le]
+  skip: True # [s390x or ppc64le or win]
 
 requirements:
   build:
+    - git         # [not win]
     - m2-patch    # [win64]
     - python
     - setuptools
