@@ -23,12 +23,13 @@ requirements:
   build:
     - git         # [not win]
     - m2-patch    # [win64]
+    - bazel 6.2.0
+    - {{ compiler('c') }}
+  host:
     - python
     - pip
     - setuptools
     - wheel
-    - bazel 6.2.0
-    - {{ compiler('c') }}
   run:
     - absl-py >=0.15,<2
     - aiohttp !=4.0.0a0,!=4.0.0a1
