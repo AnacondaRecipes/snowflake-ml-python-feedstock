@@ -8,8 +8,9 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 193c9c6684301d4a6e6fac255f174e2e23b5b487a34fba5a87253a0c0836d113
-  patches:                                   # [win]
+  patches:                                   
     - fix-windows-build.patch                # [win]
+    - fix_conda_version.patch
 
 build:
   number: 0
