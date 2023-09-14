@@ -8,8 +8,8 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 193c9c6684301d4a6e6fac255f174e2e23b5b487a34fba5a87253a0c0836d113
-  patches:
-    - fix-windows-build.patch                # [win64]
+  patches:                                   # [win]
+    - fix-windows-build.patch                # [win]
 
 build:
   number: 0
@@ -22,7 +22,7 @@ build:
 requirements:
   build:
     - git         # [not win]
-    - m2-patch    # [win64]
+    - m2-patch    # [win]
     - bazel 6.2.0
     - {{ compiler('c') }}
   host:
@@ -50,7 +50,7 @@ requirements:
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
   run_constrained:
-    - lightgbm==3.3.5
+    - lightgbm ==3.3.5
     - tensorflow >=2.9,<3
     - torchdata >=0.4,<1
     - mlflow >=2.1.0,<2.4
