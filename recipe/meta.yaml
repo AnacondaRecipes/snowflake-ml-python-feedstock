@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: bdaf55c7c4ae923b06d9bf118566d5c27b95616523aecb6a1f1d444f0ccc38dc
-  patches:                                   # [win]                                   
-    - fix-windows-build.patch                # [win]
 
 build:
   number: 0
@@ -17,12 +15,12 @@ build:
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
-  skip: True # [s390x or ppc64le or win]
+  skip: True # [s390x or ppc64le]
+  skip: True # [win]
 
 requirements:
   build:
     - git         # [not win]
-    - m2-patch    # [win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0
