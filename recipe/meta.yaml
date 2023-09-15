@@ -8,7 +8,7 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: bdaf55c7c4ae923b06d9bf118566d5c27b95616523aecb6a1f1d444f0ccc38dc
-  patches:                                   
+  patches:                                   # [win]                                   
     - fix-windows-build.patch                # [win]
 
 build:
@@ -64,6 +64,12 @@ requirements:
 test:
   imports:
     - snowflake.ml
+    - snowflake.ml.fileset
+    - snowflake.ml.model
+    - snowflake.ml.modeling
+    - snowflake.ml.registry
+    - snowflake.ml.training_dataset
+    - snowflake.ml.utils
   requires:
     - pip
   commands:
