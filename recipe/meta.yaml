@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.7" %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,9 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 193c9c6684301d4a6e6fac255f174e2e23b5b487a34fba5a87253a0c0836d113
+  sha256: bdaf55c7c4ae923b06d9bf118566d5c27b95616523aecb6a1f1d444f0ccc38dc
   patches:                                   
     - fix-windows-build.patch                # [win]
-    - fix_conda_version.patch
 
 build:
   number: 0
@@ -18,12 +17,14 @@ build:
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
-  skip: True # [s390x or ppc64le or win]
+  skip: True # [s390x or ppc64le]
 
 requirements:
   build:
     - git         # [not win]
     - m2-patch    # [win]
+    # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
+    # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0
     - {{ compiler('c') }}
   host:
@@ -42,19 +43,22 @@ requirements:
     - pandas >=1.0.0,<2
     - python
     - pyyaml >=6.0,<7
+    # requests is an extra dependency for fsspec[http]
     - requests
+    - s3fs >=2022.11,<2024
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
-    - snowflake-connector-python >=3.0.3,<4
+    - snowflake-connector-python >=3.0.4,<4
     - snowflake-snowpark-python >=1.5.1,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
   run_constrained:
     - lightgbm ==3.3.5
+    - mlflow >=2.1.0,<2.4
+    - sentencepiece >=0.1.95,<0.2
     - tensorflow >=2.9,<3
     - torchdata >=0.4,<1
-    - mlflow >=2.1.0,<2.4
     - transformers >=4.29.2,<5
 
 test:
