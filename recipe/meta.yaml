@@ -10,7 +10,7 @@ source:
   sha256: 19ffc62421acc321f350a6daef0808ad4da7dd8bb2560964cda2559020124295
 
 build:
-  number: 0
+  number: 1
   # Skip 3.11 as snowpark isn't available on 3.11 yet.
   skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
