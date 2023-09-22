@@ -74,6 +74,9 @@ test:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check   # [not win]
 
+  required:
+    - snowflake-connector-python 3.2.0
+
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
   summary: Snowflake machine learning library.
