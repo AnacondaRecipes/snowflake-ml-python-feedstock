@@ -10,6 +10,7 @@ source:
   sha256: 0d3c6de460dcb67b12a31480ece399837fde77f4756b75c4c60e4084e12032b9
   patches:
     - fix-windows-build.patch                # [win64]
+    - fix-conda-version.patch
 
 build:
   number: 0
