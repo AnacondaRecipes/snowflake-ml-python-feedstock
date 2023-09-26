@@ -46,7 +46,6 @@ requirements:
     - pyyaml >=6.0,<7
     # requests is an extra dependency for fsspec[http]
     - requests
-    - s3fs 2022.11
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.0.3,<4
