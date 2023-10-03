@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.8" %}
+{% set version = "1.0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 19ffc62421acc321f350a6daef0808ad4da7dd8bb2560964cda2559020124295
+  sha256: 4392b5a32fbca71fd97f351eb5ff30bda34f4f75a3ff3c5a7ec32bb3ba9d001a
 
 build:
   number: 0
@@ -51,8 +51,10 @@ requirements:
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
+    - cachetools >=3.1.1,<5
   run_constrained:
     - lightgbm ==3.3.5
+    - shap ==0.42.1
     - mlflow >=2.1.0,<2.4
     - sentencepiece >=0.1.95,<0.2
     - tensorflow >=2.9,<3
