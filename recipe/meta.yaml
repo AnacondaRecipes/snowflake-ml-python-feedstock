@@ -32,7 +32,6 @@ requirements:
     - wheel
   run:
     - absl-py >=0.15,<2
-    - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<4
     - cloudpickle
     - fsspec >=2022.11,<2024
