@@ -10,9 +10,9 @@ source:
   sha256: 4392b5a32fbca71fd97f351eb5ff30bda34f4f75a3ff3c5a7ec32bb3ba9d001a
 
 build:
-  number: 0
-  # Skip 3.11 as snowpark isn't available on 3.11 yet.
-  skip: True # [py<38 or py>310]
+  number: 1
+  skip: True # [ not py==311]
+  # skip: True # [py<38 or py>310]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
   skip: True # [s390x or ppc64le]
@@ -74,6 +74,9 @@ test:
   commands:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check   # [not win]
+
+  required:
+    - snowflake-connector-python 3.2.0
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
