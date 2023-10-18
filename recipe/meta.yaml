@@ -45,14 +45,12 @@ requirements:
     - s3fs >=2022.11,<2024
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
-    - sentencepiece >=0.1.95,<0.2
     - snowflake-connector-python >=3.0.4,<4
     - snowflake-snowpark-python >=1.5.1,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
     - cachetools >=3.1.1,<5
-    - pytimeparse >=1.1.8,<2
 
   run_constrained:
     - lightgbm ==3.3.5
