@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.9" %}
+{% set version = "1.0.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,11 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 4392b5a32fbca71fd97f351eb5ff30bda34f4f75a3ff3c5a7ec32bb3ba9d001a
+  sha256: 39dd904e899a0c93a974a480cff75618e096232d40fc630a9b52b37050725a33
 
 build:
   number: 0
-  # Skip 3.11 as snowpark isn't available on 3.11 yet.
-  skip: True # [py<38 or py>310]
+  skip: True # [py<38 or py>311]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
   skip: True # [s390x or ppc64le]
@@ -33,11 +32,12 @@ requirements:
   run:
     - absl-py >=0.15,<2
     - anyio >=3.5.0,<4
-    - cloudpickle
+    - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
     - numpy >=1.23,<2
     - packaging >=20.9,<24
     - pandas >=1.0.0,<2
+    - pytimeparse>=1.1.8,<2
     - python
     - pyyaml >=6.0,<7
     # requests is an extra dependency for fsspec[http]
@@ -51,12 +51,14 @@ requirements:
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
     - cachetools >=3.1.1,<5
+
   run_constrained:
     - lightgbm ==3.3.5
     - shap ==0.42.1
     - mlflow >=2.1.0,<2.4
     - sentencepiece >=0.1.95,<0.2
     - tensorflow >=2.9,<3
+    - tokenizers>=0.10,<1
     - torchdata >=0.4,<1
     - transformers >=4.29.2,<5
 
@@ -67,7 +69,6 @@ test:
     - snowflake.ml.model
     - snowflake.ml.modeling
     - snowflake.ml.registry
-    - snowflake.ml.training_dataset
     - snowflake.ml.utils
   requires:
     - pip
