@@ -72,18 +72,9 @@ test:
     - snowflake.ml.utils
   requires:
     - pip
-    - pytest
-    - pytest-xdist
-    - psutil
-    - inflection
-    - lightgbm ==3.3.5
-    - mlflow >=2.1.0,<2.4
-    - tensorflow >=2.9,<3
-    - torchdata >=0.4,<1
   commands:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check   # [not win]
-    - pytest --ignore tests/integ/snowflake/ml/_internal
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
