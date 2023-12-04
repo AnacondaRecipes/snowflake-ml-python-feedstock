@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.0.12" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 377f91deba10540e0b598aa0f53f8db6318340f3ff11ccd2dc5e5fa5506cfde8
+  sha256: 8942c91412341b5047a98637e563a68bc8d378b0705b35f14755026b2f0f831d
 
 build:
   number: 0
@@ -48,7 +48,7 @@ requirements:
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.0.4,<4
-    - snowflake-snowpark-python >=1.5.1,<2
+    - snowflake-snowpark-python >=1.8.0,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
