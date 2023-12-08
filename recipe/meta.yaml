@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 8942c91412341b5047a98637e563a68bc8d378b0705b35f14755026b2f0f831d
+  sha256: db256c9c1ba52ac2b73a7d469f16d73bbac0fcbac3cdb4bbc2671b381197b9ad
 
 build:
   number: 0
