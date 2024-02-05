@@ -9,7 +9,7 @@ if [ "$(uname)" == "Linux" ]; then
 fi
 
 # Build the wheel.
-bazel build --subcommands //snowflake/ml:wheel
+bazel build --subcommands //:wheel
 
 # Install it.
 ${PYTHON} -m pip install -vv --no-deps --no-build-isolation bazel-bin/snowflake/ml/*.whl
