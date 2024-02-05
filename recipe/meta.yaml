@@ -37,6 +37,7 @@ requirements:
     - absl-py >=0.15,<2
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<4
+    - build 0.10.0
     - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
     - importlib_resources >=5.1.4,<6
