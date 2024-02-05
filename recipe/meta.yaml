@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,9 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: c399382062e97ae2cdcbb249578c2b7f6cda16edf20fbed16afd6d03c977c516
+  sha256: db61fdff66c3aaba88d6789ecda26e16d6643cef5e4fed12832b485f34c0808e
+  patches:
+    - use_default_shell_env.patch
 
 build:
   number: 0
@@ -24,6 +26,8 @@ requirements:
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0
     - {{ compiler('c') }}
+    - patch  # [unix]
+    - m2-patch  # [win]
   host:
     - python
     - pip
