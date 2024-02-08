@@ -1,0 +1,24 @@
+From 48016ac2583129e02bc6808941c4f1c66fb90614 Mon Sep 17 00:00:00 2001
+From: Marek Waszkiewicz <mwaszkiewicz@anaconda.com>
+Date: Thu, 8 Feb 2024 13:57:06 +0100
+Subject: [PATCH] use default shell env
+
+---
+ bazel/py_rules.bzl | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/bazel/py_rules.bzl b/bazel/py_rules.bzl
+index c01e6d6..c0b258e 100644
+--- a/bazel/py_rules.bzl
++++ b/bazel/py_rules.bzl
+@@ -259,6 +259,7 @@ def _py_wheel_impl(ctx):
+             "--outdir",
+             wheel_output_dir.path,
+         ],
++		use_default_shell_env = True,
+         progress_message = "Building Wheel",
+         mnemonic = "WheelBuild",
+     )
+-- 
+2.42.0.windows.2
+
