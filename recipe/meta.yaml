@@ -17,7 +17,7 @@ build:
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
   skip: True # [s390x or ppc64le]
-  #skip: True # [win]
+  skip: True # [win]
 
 requirements:
   build:
@@ -36,7 +36,6 @@ requirements:
     - absl-py >=0.15,<2
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<4
-    - build 0.10.0
     - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
     - importlib_resources >=5.1.4,<6
@@ -56,8 +55,6 @@ requirements:
     - snowflake-connector-python >=3.0.4,<4
     - snowflake-snowpark-python >=1.8.0,<2
     - sqlparse >=0.4,<1
-    - toml 0.10.2
-    - types-toml 0.10.8.6
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
     - cachetools >=3.1.1,<5
