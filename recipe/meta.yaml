@@ -8,8 +8,8 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: db61fdff66c3aaba88d6789ecda26e16d6643cef5e4fed12832b485f34c0808e
-  patches:
-    - use_default_shell_env.patch
+  patches:                              # [win]
+    - 0001-use-default-shell-env.patch  # [win]
 
 build:
   number: 0
@@ -17,7 +17,7 @@ build:
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
   skip: True # [s390x or ppc64le]
-  skip: True # [win]
+  #skip: True # [win]
 
 requirements:
   build:
@@ -26,7 +26,6 @@ requirements:
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0
     - {{ compiler('c') }}
-    - patch  # [unix]
     - m2-patch  # [win]
   host:
     - python
