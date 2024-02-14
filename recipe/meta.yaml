@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: db61fdff66c3aaba88d6789ecda26e16d6643cef5e4fed12832b485f34c0808e
+  sha256: 0d692c13eb2f1b8f6ecf0bf73bbb79915dadbd7913b4f8ae1eb6ab798f86e860
   patches:                              # [win]
     - 0001-use-default-shell-env.patch  # [win]
 
