@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 0d692c13eb2f1b8f6ecf0bf73bbb79915dadbd7913b4f8ae1eb6ab798f86e860
-  patches:                              # [win]
-    - 0001-use-default-shell-env.patch  # [win]
 
 build:
   number: 0
@@ -26,7 +24,6 @@ requirements:
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0
     - {{ compiler('c') }}
-    - m2-patch  # [win]
   host:
     - python
     - pip
