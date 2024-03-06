@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0d692c13eb2f1b8f6ecf0bf73bbb79915dadbd7913b4f8ae1eb6ab798f86e860
+  sha256: ed68d0c2b9b5b8c7b57a13ae5277d03aee09d20d589aaeb630fae2f3bdddaca4
 
 build:
   number: 0
