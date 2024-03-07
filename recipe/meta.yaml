@@ -10,12 +10,13 @@ source:
   sha256: ed68d0c2b9b5b8c7b57a13ae5277d03aee09d20d589aaeb630fae2f3bdddaca4
 
 build:
-  number: 0
+  number: 3
   skip: True # [py<38 or py>311]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
   skip: True # [s390x or ppc64le]
-  skip: True # [win]
+  # skip: True # [win]
+  skip: True # [py>38]
 
 requirements:
   build:
