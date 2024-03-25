@@ -67,6 +67,7 @@ requirements:
     - tokenizers >=0.10,<1
     - torchdata >=0.4,<1
     - transformers >=4.32.1,<5
+    - sentence-transformers>=2.2.2,<3
 
 test:
   imports:
