@@ -70,7 +70,9 @@ requirements:
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
     - pytorch <2.1.0
     # seems to be required in multiple places
-    - tensorflow >=2.10,<3
+    # disabling dependency on tensorflow for the moment since it seems to cause a lot of dependency problems.
+    # We should re-enable this dependency and tackle all issues asap
+    #- tensorflow >=2.10,<3
     # Seems to be depepndent on pytorch, so not optional
     - torchdata >=0.4,<1
     # seems to be in multiple places, especially LLM which seems to be included
