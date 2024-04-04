@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.2.3" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,15 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: ed68d0c2b9b5b8c7b57a13ae5277d03aee09d20d589aaeb630fae2f3bdddaca4
+  sha256: f3ed8227e358a80831cbd938b446531b74140f675d07c2d9107919d5313c35e5
 
 build:
   number: 0
   skip: True # [py<38 or py>311]
   # Skip Windows (on CI) because it needs a manual build for now.
   # Skip s390x and ppc64 since they lack bazel.
-  skip: True # [s390x or ppc64le]
+  skip: True # [s390x]
+  # skipping win until build pipeline for win works
   skip: True # [win]
 
 requirements:
@@ -49,7 +50,7 @@ requirements:
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.0.4,<4
-    - snowflake-snowpark-python >=1.8.0,<2
+    - snowflake-snowpark-python >=1.8.0,<2,!=1.12.0
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
@@ -57,16 +58,34 @@ requirements:
     - pytimeparse >=1.1.8,<2
 
   run_constrained:
-    - lightgbm ==3.3.5
+    # Seems to be optional
     - shap ==0.42.1
-    - mlflow >=2.1.0,<2.4
-    - pytorch >=2.0.1,<2.1.0  # [win]
+    # Seems to be optional to LLM although not explicitly used. Also, not sure if pip will install it.
     - sentencepiece >=0.1.95,<0.2
-    - tensorflow >=2.9,<3,!=2.12.0
-    - tokenizers >=0.10,<1
-    - torchdata >=0.4,<1
-    - transformers >=4.32.1,<5
+    # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
+    # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
+    - tokenizers >=0.13.3
+    # these dependencies are specified as optional and also in a run_contrained section of their recipe
+    # but in reality they may always be imported, hence they should be specified in the run section
+    # ...
+    # seems to be imported when LLM is used
+    # we don't have this on defaults or other channels
     - peft >=0.5.0,<1
+    # seems to be required by one specific model specification builder
+    - lightgbm ==3.3.5
+    # seems to be required by one specific model handler
+    - mlflow >=2.1.0,<2.4
+    # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
+    - pytorch <2.1.0
+    # seems to be required in multiple places
+    # requiring this as a run dependency seems to cause a lot of dependency problems.
+    - tensorflow >=2.10,<3
+    # Seems to be depepndent on pytorch, so not optional
+    - torchdata >=0.4,<1
+    # seems to be in multiple places, especially LLM which seems to be included
+    - transformers >=4.32.1,<5
+    # seems to be required by one specific model handler
+    - sentence-transformers >=2.2.2,<3
 
 test:
   imports:
