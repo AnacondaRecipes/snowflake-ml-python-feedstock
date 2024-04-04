@@ -64,7 +64,7 @@ requirements:
     - sentencepiece >=0.1.95,<0.2
     # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
     # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
-    - tokenizers >=0.10,<1
+    - tokenizers >=0.13.3
     # these dependencies are specified as optional and also in a run_contrained section of their recipe
     # but in reality they may always be imported, hence they should be specified in the run section
     # ...
