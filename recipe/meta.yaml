@@ -84,6 +84,8 @@ requirements:
     - torchdata >=0.4,<1
     # seems to be in multiple places, especially LLM which seems to be included
     - transformers >=4.32.1,<5
+    # seems to be required by one specific model handler
+    - sentence-transformers >=2.2.2,<3
 
 test:
   imports:
