@@ -56,28 +56,6 @@ requirements:
     - xgboost >=1.7.3,<2
     - cachetools >=3.1.1,<6
     - pytimeparse >=1.1.8,<2
-    # these dependencies are specified as optional and also in a run_contrained section of their recipe
-    # but in reality they may always be imported, hence they should be specified in the run section
-    # ...
-    # seems to be imported when LLM is used
-    # we don't have this on defaults or other channels so we won't include it since it's not a critical one
-    # but we should have it at some point in the future
-    #- peft >=0.5.0,<1
-    # seems to be required by one specific model specification builder
-    - lightgbm ==3.3.5
-    # seems to be required by one specific model handler
-    - mlflow >=2.1.0,<2.4
-    # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch <2.1.0
-    # seems to be required in multiple places
-    # disabling dependency on tensorflow for the moment since it seems to cause a lot of dependency problems.
-    # We should re-enable this dependency and tackle all issues asap
-    #- tensorflow >=2.10,<3
-    # Seems to be depepndent on pytorch, so not optional
-    - torchdata >=0.4,<1
-    # seems to be in multiple places, especially LLM which seems to be included
-    - transformers >=4.32.1,<5
-
 
   run_constrained:
     # Seems to be optional
@@ -87,6 +65,27 @@ requirements:
     # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
     # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
     - tokenizers >=0.13.3
+    # these dependencies are specified as optional and also in a run_contrained section of their recipe
+    # but in reality they may always be imported, hence they should be specified in the run section
+    # ...
+    # seems to be imported when LLM is used
+    # we don't have this on defaults or other channels
+    - peft >=0.5.0,<1
+    # seems to be required by one specific model specification builder
+    - lightgbm ==3.3.5
+    # seems to be required by one specific model handler
+    - mlflow >=2.1.0,<2.4
+    # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
+    - pytorch <2.1.0
+    # seems to be required in multiple places
+    # requiring this as a run dependency seems to cause a lot of dependency problems.
+    - tensorflow >=2.10,<3
+    # Seems to be depepndent on pytorch, so not optional
+    - torchdata >=0.4,<1
+    # seems to be in multiple places, especially LLM which seems to be included
+    - transformers >=4.32.1,<5
+    # seems to be required by one specific model handler
+    - sentence-transformers >=2.2.2,<3
 
 test:
   imports:
