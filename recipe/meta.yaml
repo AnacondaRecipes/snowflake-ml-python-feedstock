@@ -64,7 +64,7 @@ requirements:
     - sentencepiece >=0.1.95,<0.2
     # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
     # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
-    - tokenizers >=0.13.3
+    - tokenizers >=0.10,<1
     # these dependencies are specified as optional and also in a run_contrained section of their recipe
     # but in reality they may always be imported, hence they should be specified in the run section
     # ...
@@ -76,10 +76,10 @@ requirements:
     # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch <2.1.0
+    - pytorch >=2.0.1,<2.1.0  # [win]
     # seems to be required in multiple places
     # requiring this as a run dependency seems to cause a lot of dependency problems.
-    - tensorflow >=2.10,<3
+    - tensorflow >=2.9,<3,!=2.12.0
     # Seems to be depepndent on pytorch, so not optional
     - torchdata >=0.4,<1
     # seems to be in multiple places, especially LLM which seems to be included
