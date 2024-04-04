@@ -79,7 +79,7 @@ requirements:
     - pytorch >=2.0.1,<2.1.0  # [win]
     # seems to be required in multiple places
     # requiring this as a run dependency seems to cause a lot of dependency problems.
-    - tensorflow >=2.9,<3,!=2.12.0
+    - tensorflow >=2.10,<3
     # Seems to be depepndent on pytorch, so not optional
     - torchdata >=0.4,<1
     # seems to be in multiple places, especially LLM which seems to be included
