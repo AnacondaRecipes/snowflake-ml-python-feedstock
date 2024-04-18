@@ -76,13 +76,13 @@ requirements:
     # ...
     # seems to be imported when LLM is used
     # we don't have this on defaults or other channels
-    - peft >=0.5.0,<1
+    - peft
     # seems to be required by one specific model specification builder
     - lightgbm ==3.3.5
     # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch >=2.0.1,<2.1.0  # [win]
+    - pytorch <2.1.0  # [win]
     # seems to be required in multiple places
     # requiring this as a run dependency seems to cause a lot of dependency problems.
     - tensorflow >=2.10,<3
