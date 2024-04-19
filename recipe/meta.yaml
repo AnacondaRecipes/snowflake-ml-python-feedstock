@@ -18,7 +18,7 @@ build:
   # skipping win until build pipeline for win works
   skip: True # [win]
 
-# It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/1.2.3/requirements.yml) and update
+# It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/main/requirements.yml) and update
 # the `run` and `run_constrained` section accordingly.
 # Snowflake marks the optional dependency with the use of the `requirements_extra_tags` tag. The tags refer to models used within *snowflake-ml*
 # which the user may or may not want to use together with the *snowflake* platform. They explained that because they control the environment and
@@ -82,7 +82,7 @@ requirements:
     # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch <2.1.0  # [win]
+    - pytorch >=2.0.1,<2.1.0  # [win]
     # seems to be required in multiple places
     # requiring this as a run dependency seems to cause a lot of dependency problems.
     - tensorflow >=2.10,<3
