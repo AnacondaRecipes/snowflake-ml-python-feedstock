@@ -76,7 +76,7 @@ requirements:
     # ...
     # seems to be imported when LLM is used
     # we don't have this on defaults or other channels
-    - peft
+    - peft >=0.5.0,<1
     # seems to be required by one specific model specification builder
     - lightgbm ==3.3.5
     # seems to be required by one specific model handler
