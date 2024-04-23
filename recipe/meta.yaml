@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.3.1" %}
+{% set version = "1.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 62143830766add318c269bb1e0b8659722123b48dbc52d1d2e905b18e47002f9
+  sha256: 007bcb203d00e0cb4cab18cb9002855121a4f9053cca3d32cb0fabb614e3481d
 
 build:
   number: 0
@@ -18,6 +18,12 @@ build:
   # skipping win until build pipeline for win works
   skip: True # [win]
 
+# It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/main/requirements.yml) and update
+# the `run` and `run_constrained` section accordingly.
+# Snowflake marks the optional dependency with the use of the `requirements_extra_tags` tag. The tags refer to models used within *snowflake-ml*
+# which the user may or may not want to use together with the *snowflake* platform. They explained that because they control the environment and
+# features of the platform, it is not necessary to pull those extra requirements in the `run` section. It is ok to leave them in the
+# `run_constrained` section.
 requirements:
   build:
     - git         # [not win]
