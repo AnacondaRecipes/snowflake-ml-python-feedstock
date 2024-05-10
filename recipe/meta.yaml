@@ -37,21 +37,24 @@ requirements:
     - setuptools
     - wheel
   run:
+    - python
     - absl-py >=0.15,<2
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<4
+    - cachetools >=3.1.1,<6
+    - catboost >=1.2.0,<1.3
     - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
+    # requests is an extra dependency for fsspec[http]
+    - requests
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<2
     - packaging >=20.9,<24
-    - pandas >=1.0.0,<2
+    - pandas >=1.0.0,<3
     - pyarrow
-    - python
+    - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
-    # requests is an extra dependency for fsspec[http]
     - retrying >=1.3.3,<2
-    - requests
     - s3fs >=2022.11,<2024
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
@@ -60,12 +63,6 @@ requirements:
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
-    - cachetools >=3.1.1,<6
-    - pytimeparse >=1.1.8,<2
-    - catboost >=1.2.0,<1.3
-    - lightgbm >=3.3.5,<4.2
-    - pandas >=1.0.0,<3
-    - pytorch >=2.0.1,<3
 
   run_constrained:
     # Seems to be optional
@@ -74,7 +71,7 @@ requirements:
     - sentencepiece >=0.1.95,<0.2
     # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
     # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
-    - tokenizers >=0.13.3
+    - tokenizers >=0.10,<1
     # these dependencies are specified as optional and also in a run_contrained section of their recipe
     # but in reality they may always be imported, hence they should be specified in the run section
     # ...
@@ -82,11 +79,11 @@ requirements:
     # we don't have this on defaults or other channels
     - peft >=0.5.0,<1
     # seems to be required by one specific model specification builder
-    - lightgbm ==3.3.5
+    - lightgbm >=3.3.5,<4.2
     # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch >=2.0.1,<2.1.0  # [win]
+    - pytorch >=2.0.1,<3  # [win]
     # seems to be required in multiple places
     # requiring this as a run dependency seems to cause a lot of dependency problems.
     - tensorflow >=2.10,<3
