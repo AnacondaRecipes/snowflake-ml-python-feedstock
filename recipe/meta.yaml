@@ -12,24 +12,25 @@ source:
 build:
   number: 0
   skip: True # [py<38 or py>311]
-  # Skip Windows (on CI) because it needs a manual build for now.
-  # Skip s390x and ppc64 since they lack bazel.
+  # bazel not available on s390x
   skip: True # [s390x]
-  # skipping win until build pipeline for win works
-  skip: True # [win and (py<311 or py>311)]
-  # catboost is not available for py38 on osx-64 for an issue, see:
+  # catboost not available for py38 on osx-64 for an issue, see:
   # https://github.com/AnacondaRecipes/catboost-feedstock/blob/7fdf7753e6d9da42340a5aeb5c29fc4451dd6d57/recipe/meta.yaml#L17
   skip: True  # [(osx and x86_64) and py==38]
 
 # It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/main/requirements.yml) and update
 # the `run` and `run_constrained` section accordingly.
+#
+# `version_requirements` or `version_requirements_conda` -> `run`
+# (`version_requirements` or `version_requirements_conda`) and `requirements_extra_tags` -> `run_constrained`
+#
 # Snowflake marks the optional dependency with the use of the `requirements_extra_tags` tag. The tags refer to models used within *snowflake-ml*
 # which the user may or may not want to use together with the *snowflake* platform. They explained that because they control the environment and
 # features of the platform, it is not necessary to pull those extra requirements in the `run` section. It is ok to leave them in the
 # `run_constrained` section.
 requirements:
   build:
-    # for win, git is installed on our runners.
+    # For win, git is installed on our runners.
     # To run a local build, use m2-git or have git installed.
     - git         # [not win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
@@ -68,7 +69,6 @@ requirements:
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
-
   run_constrained:
     # Seems to be optional
     - shap ==0.42.1
