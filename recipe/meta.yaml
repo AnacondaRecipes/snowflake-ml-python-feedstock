@@ -29,8 +29,9 @@ build:
 # `run_constrained` section.
 requirements:
   build:
+    # for win, git is installed on our runners.
+    # To run a local build, use m2-git or have git installed.
     - git         # [not win]
-    - m2-git      # [win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     - bazel 6.2.0

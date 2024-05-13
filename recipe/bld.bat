@@ -5,3 +5,5 @@ bazel "--output_user_root=C:\broot" "build" "--repository_cache=" "--nobuild_pyt
 %PYTHON% -m pip install -vv --no-deps --no-build-isolation  bazel-bin\dist\snowflake_ml_python-%PKG_VERSION%-py3-none-any.whl
 bazel "clean" "--expunge"
 bazel "shutdown"
+
+taskkill /IM "java.exe" /F
