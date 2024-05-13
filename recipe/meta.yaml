@@ -24,6 +24,10 @@ build:
 # `version_requirements` or `version_requirements_conda` -> `run`
 # (`version_requirements` or `version_requirements_conda`) and `requirements_extra_tags` -> `run_constrained`
 #
+# This meta.yaml is up-to-date for defining `run` and `run_constrained` dependencies,
+# therefore it can be used to double check the runtime dependencies or as a starting point:
+# https://github.com/snowflakedb/snowflake-ml-python/blob/main/ci/conda_recipe/meta.yaml
+#
 # Snowflake marks the optional dependency with the use of the `requirements_extra_tags` tag. The tags refer to models used within *snowflake-ml*
 # which the user may or may not want to use together with the *snowflake* platform. They explained that because they control the environment and
 # features of the platform, it is not necessary to pull those extra requirements in the `run` section. It is ok to leave them in the
