@@ -15,7 +15,8 @@ bazel "--output_user_root=C:\broot" --max_idle_secs=1 "build" "--repository_cach
 @REM removes the entire output base tree which, in addition to the 
 @REM build output, contains all temp files created by Bazel. 
 @REM NB: It also stops the Bazel server after the clean, equivalent 
-@REM to the shutdown command.
+@REM to the shutdown command. Nevertheless, if we do not run also
+@REM the "bazel shutdown", the next build will fail for some reason.
 @REM 
 @REM See: https://bazel.build/docs/user-manual#clean
 
