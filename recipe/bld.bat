@@ -9,7 +9,10 @@ bazel "--output_user_root=C:\broot" --max_idle_secs=1 "build" "--repository_cach
 @REM removes the entire output base tree which, in addition to the 
 @REM build output, contains all temp files created by Bazel. 
 @REM NB: It also stops the Bazel server after the clean, equivalent 
-@REM to the shutdown command -> do NOT run "bazel shutdown" after
+@REM to the shutdown command.
+@REM See: https://bazel.build/docs/user-manual#clean
+@REM 
+@REM Do NOT run "bazel shutdown" after
 @REM this, or it will create a zombie java.exe holding some handles
 @REM that prevent conda-build to delete/move/rename certain folders 
 @REM and files (e.g. work, and temporary).
