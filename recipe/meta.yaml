@@ -10,7 +10,7 @@ source:
   sha256: 84ac8143871bf827454437b1db951e2b4a1d09d76c32c3e2d500c5ef4ad2b711
 
 build:
-  number: 0
+  number: 1
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
