@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 84ac8143871bf827454437b1db951e2b4a1d09d76c32c3e2d500c5ef4ad2b711
+  sha256: 9bbd816d3a7950391ecb79605236dc0e5082ab9f32e966ee46760768adc01c50
 
 build:
   number: 0
@@ -52,7 +52,6 @@ requirements:
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<4
     - cachetools >=3.1.1,<6
-    - catboost >=1.2.0,<1.3
     - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
     # requests is an extra dependency for fsspec[http]
@@ -74,10 +73,11 @@ requirements:
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
   run_constrained:
+    - catboost >=1.2.0,<2
     # Seems to be optional
     - shap ==0.42.1
     # Seems to be optional to LLM although not explicitly used. Also, not sure if pip will install it.
-    - sentencepiece >=0.1.95,<0.2
+    - sentencepiece >=0.1.95,<1
     # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
     # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
     - tokenizers >=0.10,<1
@@ -88,7 +88,7 @@ requirements:
     # we don't have this on defaults or other channels
     - peft >=0.5.0,<1
     # seems to be required by one specific model specification builder
-    - lightgbm >=3.3.5,<4.2
+    - lightgbm >=3.3.5,<5
     # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
     # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
