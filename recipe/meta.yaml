@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.5.2" %}
+{% set version = "1.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,13 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 7bb7a3cd41ccc49bb25e4efa3add1f32ca33b6d1e462d288adea4c182366ee2a
+  sha256: 65e70b14589f7bb720b1522b628bd129140ef592c460be3c64d9898b210eae05
 
 build:
   number: 0
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
-  # catboost not available for py38 on osx-64 for an issue, see:
-  # https://github.com/AnacondaRecipes/catboost-feedstock/blob/7fdf7753e6d9da42340a5aeb5c29fc4451dd6d57/recipe/meta.yaml#L17
-  skip: True  # [(osx and x86_64) and py==38]
 
 # It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/main/requirements.yml) and update
 # the `run` and `run_constrained` section accordingly.
@@ -54,8 +51,6 @@ requirements:
     - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0
     - fsspec >=2022.11,<2024
-    # requests is an extra dependency for fsspec[http]
-    - requests
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<2
     - packaging >=20.9,<24
@@ -63,12 +58,14 @@ requirements:
     - pyarrow
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
+    # requests is an extra dependency for fsspec[http]
+    - requests
     - retrying >=1.3.3,<2
     - s3fs >=2022.11,<2024
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
-    - snowflake-snowpark-python >=1.11.1,<2,!=1.12.0
+    - snowflake-snowpark-python >=1.15.0,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
