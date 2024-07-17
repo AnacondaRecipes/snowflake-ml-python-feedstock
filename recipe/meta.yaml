@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.5.3" %}
+{% set version = "1.5.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 65e70b14589f7bb720b1522b628bd129140ef592c460be3c64d9898b210eae05
+  sha256: c23a6f47c9ce57e93840b9ec0ff5fff8ce84f89bafc7c8a7322e02500a27ccc4
 
 build:
   number: 0
@@ -65,40 +65,23 @@ requirements:
     - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
-    - snowflake-snowpark-python >=1.15.0,<2
+    - snowflake-snowpark-python >=1.17.0,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<2
   run_constrained:
     - catboost >=1.2.0,<2
-    # Seems to be optional
-    - shap ==0.42.1
-    # Seems to be optional to LLM although not explicitly used. Also, not sure if pip will install it.
-    - sentencepiece >=0.1.95,<1
-    # Seems to be optional depending on task executed within huggingface pipeline, but it's listed as part of transformers.
-    # Also, not sure if pip will install it, also there is inconsistency as far as range requirement. (less restrictive one seems to be >=0.10,<1)
-    - tokenizers >=0.10,<1
-    # these dependencies are specified as optional and also in a run_contrained section of their recipe
-    # but in reality they may always be imported, hence they should be specified in the run section
-    # ...
-    # seems to be imported when LLM is used
-    # we don't have this on defaults or other channels
-    - peft >=0.5.0,<1
-    # seems to be required by one specific model specification builder
     - lightgbm >=3.3.5,<5
-    # seems to be required by one specific model handler
     - mlflow >=2.1.0,<2.4
-    # seems to be required in multiple places, especially LLM which seems to be included, also on all platforms, not just win
-    - pytorch >=2.0.1,<3
-    # seems to be required in multiple places
-    # requiring this as a run dependency seems to cause a lot of dependency problems.
-    - tensorflow >=2.10,<3
-    # Seems to be depepndent on pytorch, so not optional
-    - torchdata >=0.4,<1
-    # seems to be in multiple places, especially LLM which seems to be included
-    - transformers >=4.32.1,<5
-    # seems to be required by one specific model handler
+    - pytorch >=2.0.1,<2.3.0
     - sentence-transformers >=2.2.2,<3
+    - sentencepiece >=0.1.95,<1
+    - shap ==0.42.1
+    - tensorflow >=2.10,<3
+    - tokenizers >=0.10,<1
+    - torchdata >=0.4,<1
+    - transformers >=4.32.1,<5
+    - openjpeg !=2.4.0=*_1  # [win]
 
 test:
   imports:
