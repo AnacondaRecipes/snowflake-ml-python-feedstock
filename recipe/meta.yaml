@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,12 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a1bc42e3786b7c4b55e8f9a00c4d3b80568cb0932f89b8a76d044279fe9b71a6
+  sha256: 320325d96abeda1b2b8fc359d5bd7d54a73b366ebd03129c4a6332f843efd95c
 
 build:
-  number: 0
+  # allows SF to rebuild the package as needed without incurring a
+  # higher build number than the package we release
+  number: 100
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
