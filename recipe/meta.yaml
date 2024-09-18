@@ -10,6 +10,8 @@ source:
   sha256: 774d79aa3990cd53e3f44845959fc22443cd555886b5c0ec1821f59465757cce
 
 build:
+  # The build number of this package should always start from 100
+  # for new versions. For more information ask the CODEOWNERS.
   number: 100
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
