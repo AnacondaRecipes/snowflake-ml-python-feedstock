@@ -95,7 +95,10 @@ test:
     - snowflake.ml.registry
     - snowflake.ml.utils
   requires:
-    - pip <24.2
+    # temporary upper pinning for osx-arm64 fails because of this https://github.com/pypa/pip/issues/12884
+    # remove it when there is a better solution
+    - pip <24.2  # [arm64]
+    - pip
   commands:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check   # [not win]
