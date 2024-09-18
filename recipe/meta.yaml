@@ -93,7 +93,7 @@ test:
     - snowflake.ml.registry
     - snowflake.ml.utils
   requires:
-    - pip
+    - pip <24.2
   commands:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check   # [not win]
