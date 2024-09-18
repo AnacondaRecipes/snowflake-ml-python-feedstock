@@ -10,7 +10,7 @@ source:
   sha256: 774d79aa3990cd53e3f44845959fc22443cd555886b5c0ec1821f59465757cce
 
 build:
-  number: 0
+  number: 100
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
@@ -69,7 +69,7 @@ requirements:
     - snowflake-snowpark-python >=1.17.0,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
-    - xgboost >=1.7.3,<2
+    - xgboost >=1.7.3,<2.1
   run_constrained:
     - catboost >=1.2.0,<2
     - lightgbm >=3.3.5,<5
@@ -109,7 +109,7 @@ about:
     to build machine learning solutions. Functionalities include model uploading,
     training, feature engineering, etc.
   dev_url: https://github.com/snowflakedb/snowflake-ml-python
-  doc_url: https://docs.snowflake.com/developer-guide/snowpark-ml/index
+  doc_url: https://docs.snowflake.com/developer-guide/snowflake-ml/overview
 
 extra:
   recipe-maintainers:
