@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.6.3" %}
+{% set version = "1.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -38,7 +38,7 @@ requirements:
     - git         # [not win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
-    - bazel 6.3.0
+    - bazel 6.2.0
     - {{ compiler('c') }}
   host:
     - python
@@ -65,7 +65,7 @@ requirements:
     - requests
     - retrying >=1.3.3,<2
     - s3fs >=2022.11,<2024
-    - scikit-learn >=1.2.1,<1.6
+    - scikit-learn >=1.2.1,<1.4
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
     - snowflake-snowpark-python >=1.17.0,<2
@@ -79,11 +79,12 @@ requirements:
     - pytorch >=2.0.1,<2.3.0
     - sentence-transformers >=2.2.2,<3
     - sentencepiece >=0.1.95,<1
-    - shap >=0.42.0,<1
+    - shap ==0.42.1
     - tensorflow >=2.10,<3
     - tokenizers >=0.10,<1
     - torchdata >=0.4,<1
     - transformers >=4.32.1,<5
+    - openjpeg !=2.4.0=*_1  # [win]
 
 test:
   imports:
@@ -94,6 +95,9 @@ test:
     - snowflake.ml.registry
     - snowflake.ml.utils
   requires:
+    # temporary upper pinning for osx-arm64 fails because of this https://github.com/pypa/pip/issues/12884
+    # remove it when there is a better solution
+    - pip <24.2  # [arm64]
     - pip
   commands:
     # On win-64 this does not pick up xgboost for some reason, so skip it.
