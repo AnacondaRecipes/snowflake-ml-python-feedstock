@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 774d79aa3990cd53e3f44845959fc22443cd555886b5c0ec1821f59465757cce
+  sha256: d5080496ecc00d7070061990f9792567d7b0b18003b4c396aa16c85fd311b5dc
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
-  number: 100
+  number: 101
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
