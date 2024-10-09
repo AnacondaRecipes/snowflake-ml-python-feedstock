@@ -38,7 +38,8 @@ requirements:
     - git         # [not win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
-    - bazel 6.5.0
+    - bazel 6.2.0         # [win]
+    - bazel 6.5.0         # [not win]
     - {{ compiler('c') }}
   host:
     - python
