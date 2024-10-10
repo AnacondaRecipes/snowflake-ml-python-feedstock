@@ -12,7 +12,7 @@ source:
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
-  number: 101
+  number: 100
   skip: True # [py<38 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
