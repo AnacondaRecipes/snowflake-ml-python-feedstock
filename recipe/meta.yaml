@@ -40,6 +40,7 @@ requirements:
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
     # only for version 1.6.3 while we fix bazel 6.5.0 for win, we use the previous version
     - bazel 6.2.0         # [win]
+    # upstream uses ==6.3.0 but we have 6.2.0 or 6.5.0
     - bazel 6.5.0         # [not win]
     - {{ compiler('c') }}
   host:
