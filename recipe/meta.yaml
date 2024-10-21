@@ -99,7 +99,6 @@ test:
   requires:
     - pip
   commands:
-    # On win-64 this does not pick up xgboost for some reason, so skip it.
     - pip check
 
 about:
