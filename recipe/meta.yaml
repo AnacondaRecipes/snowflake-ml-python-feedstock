@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.6.4" %}
+{% set version = "1.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 9827773aebf99b569bddccf01ad8db072477867c2fc2278fdabd61b8d6c45ca4
+  sha256: b3afd36c34ff463ec72e37a0c1a5bcbdc81a64107a1560088e9a170cc53cfef7
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
-  skip: True # [py<38 or py>311]
+  skip: True # [py<39 or py>311]
   # bazel not available on s390x
   skip: True # [s390x]
 
@@ -38,10 +38,8 @@ requirements:
     - git         # [not win]
     # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
     # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
-    # only for version 1.6.4 while we fix bazel 6.5.0 for win, we use the previous version
-    - bazel 6.2.0         # [win]
-    # upstream uses ==6.3.0 but we have 6.2.0 or 6.5.0
-    - bazel 6.5.0         # [not win]
+    # upstream uses ==6.3.x but we have 6.2.0 or 6.5.0
+    - bazel 6.5.0
     - {{ compiler('c') }}
   host:
     - python
@@ -68,13 +66,13 @@ requirements:
     - requests
     - retrying >=1.3.3,<2
     - s3fs >=2022.11,<2024
-    - scikit-learn >=1.2.1,<1.6
+    - scikit-learn >=1.4,<1.6
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
     - snowflake-snowpark-python >=1.17.0,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
-    - xgboost >=1.7.3,<2.1
+    - xgboost >=1.7.3,<3
   run_constrained:
     - catboost >=1.2.0,<2
     - lightgbm >=3.3.5,<5
@@ -82,7 +80,7 @@ requirements:
     - pytorch >=2.0.1,<2.3.0
     - sentence-transformers >=2.2.2,<3
     - sentencepiece >=0.1.95,<1
-    - shap >=0.42.0,<1
+    - shap >=0.46.0,<1
     - tensorflow >=2.10,<3
     - tokenizers >=0.10,<1
     - torchdata >=0.4,<1
@@ -96,6 +94,7 @@ test:
     - snowflake.ml.modeling
     - snowflake.ml.registry
     - snowflake.ml.utils
+    - snowflake.cortex
   requires:
     - pip
   commands:
