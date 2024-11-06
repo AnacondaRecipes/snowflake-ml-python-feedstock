@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: b3afd36c34ff463ec72e37a0c1a5bcbdc81a64107a1560088e9a170cc53cfef7
+  sha256: d48ec7b70965729e6dcf8f0bcc3459c682131fedc9b67a4ad7a69168ce82c769
 
 build:
   # The build number of this package should always start from 100
@@ -54,10 +54,11 @@ requirements:
     - anyio >=3.5.0,<4
     - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0
+    - cryptography
     - fsspec >=2022.11,<2024
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<2
-    - packaging >=20.9,<24
+    - packaging >=20.9,<25
     - pandas >=1.0.0,<3
     - pyarrow
     - pytimeparse >=1.1.8,<2
@@ -75,7 +76,7 @@ requirements:
     - xgboost >=1.7.3,<3
   run_constrained:
     - catboost >=1.2.0,<2
-    - lightgbm >=3.3.5,<5
+    - lightgbm >=4.1.0,<5
     - mlflow >=2.1.0,<2.4
     - pytorch >=2.0.1,<2.3.0
     - sentence-transformers >=2.2.2,<3
