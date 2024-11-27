@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.7.1" %}
+{% set version = "1.7.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: d48ec7b70965729e6dcf8f0bcc3459c682131fedc9b67a4ad7a69168ce82c769
+  sha256: 6ef0b0714957a577900fa7a387c0477b526dcb69c9597f908183aa6abd647099
 
 build:
   # The build number of this package should always start from 100
@@ -61,6 +61,7 @@ requirements:
     - packaging >=20.9,<25
     - pandas >=1.0.0,<3
     - pyarrow
+    - pyjwt >=2.0.0,<3
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     # requests is an extra dependency for fsspec[http]
