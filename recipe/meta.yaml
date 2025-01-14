@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.7.2" %}
+{% set version = "1.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6ef0b0714957a577900fa7a387c0477b526dcb69c9597f908183aa6abd647099
+  sha256: 0db95c47c2415ccc56b6800af280503d2d203e80b8211ad508a1f04913809e58
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
-  skip: True # [py<39 or py>311]
+  skip: True # [py<39 or py>=312]
   # bazel not available on s390x
   skip: True # [s390x]
 
@@ -55,7 +55,7 @@ requirements:
     - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0
     - cryptography
-    - fsspec >=2022.11,<2024
+    - fsspec >=2022.11,<2025
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<2
     - packaging >=20.9,<25
@@ -67,7 +67,7 @@ requirements:
     # requests is an extra dependency for fsspec[http]
     - requests
     - retrying >=1.3.3,<2
-    - s3fs >=2022.11,<2024
+    - s3fs >=2022.11,<2025
     - scikit-learn >=1.4,<1.6
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
@@ -101,6 +101,8 @@ test:
     - pip
   commands:
     - pip check
+    # check that pip gets the correct version
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
