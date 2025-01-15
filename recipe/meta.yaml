@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.7.2" %}
+{% set version = "1.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6ef0b0714957a577900fa7a387c0477b526dcb69c9597f908183aa6abd647099
+  sha256: 0db95c47c2415ccc56b6800af280503d2d203e80b8211ad508a1f04913809e58
 
 build:
   # The build number of this package should always start from 100
@@ -55,7 +55,7 @@ requirements:
     - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0
     - cryptography
-    - fsspec >=2022.11,<2024
+    - fsspec >=2024.6.1,<2026
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<2
     - packaging >=20.9,<25
@@ -67,7 +67,7 @@ requirements:
     # requests is an extra dependency for fsspec[http]
     - requests
     - retrying >=1.3.3,<2
-    - s3fs >=2022.11,<2024
+    - s3fs >=2024.6.1,<2026
     - scikit-learn >=1.4,<1.6
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
@@ -78,15 +78,16 @@ requirements:
   run_constrained:
     - catboost >=1.2.0,<2
     - lightgbm >=4.1.0,<5
-    - mlflow >=2.1.0,<2.4
+    - mlflow >=2.16.0,<3
     - pytorch >=2.0.1,<2.3.0
     - sentence-transformers >=2.2.2,<3
     - sentencepiece >=0.1.95,<1
     - shap >=0.46.0,<1
-    - tensorflow >=2.10,<3
+    - tensorflow >=2.12.0,<3
     - tokenizers >=0.10,<1
     - torchdata >=0.4,<1
     - transformers >=4.32.1,<5
+    - huggingface_hub <0.26
 
 test:
   imports:
@@ -101,6 +102,8 @@ test:
     - pip
   commands:
     - pip check
+    # check that pip gets the correct version
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
