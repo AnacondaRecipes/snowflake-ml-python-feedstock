@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.7.3" %}
+{% set version = "1.7.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0db95c47c2415ccc56b6800af280503d2d203e80b8211ad508a1f04913809e58
+  sha256: 3e15f49e2a4c796f85a917bac480ff5086b2cc8695e08f481260bf3901193d52
 
 build:
   # The build number of this package should always start from 100
@@ -44,14 +44,14 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=61.0
     - wheel
   run:
     - python
     - absl-py >=0.15,<2
     # For fsspec[http] in conda
     - aiohttp !=4.0.0a0,!=4.0.0a1
-    - anyio >=3.5.0,<4
+    - anyio >=3.5.0,<5
     - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0
     - cryptography
@@ -71,7 +71,7 @@ requirements:
     - scikit-learn >=1.4,<1.6
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.5.0,<4
-    - snowflake-snowpark-python >=1.17.0,<2
+    - snowflake-snowpark-python >=1.17.0,<2,!=1.26.0
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<3
@@ -98,12 +98,12 @@ test:
     - snowflake.ml.registry
     - snowflake.ml.utils
     - snowflake.cortex
-  requires:
-    - pip
   commands:
     - pip check
     # check that pip gets the correct version
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+  requires:
+    - pip
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
