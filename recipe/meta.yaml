@@ -90,8 +90,6 @@ requirements:
     - huggingface_hub <0.26
 
 test:
-  source_files:
-    - tests
   imports:
     - snowflake.ml
     - snowflake.ml.fileset
