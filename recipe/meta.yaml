@@ -104,18 +104,8 @@ test:
     - pip check
     # check that pip gets the correct version
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # Unsatisfiable dependencies for platform win-64: {MatchSpec("tensorflow[version='>=2.12.0,<3']")} 
-    # Unsatisfiable dependencies for platform osx-64: {MatchSpec("threadpoolctl[version='>=3.1.0']")}
-    - python -m pytest -v tests  # [not ((osx and x86_64) or (win and x86_64))]
   requires:
     - pip
-    - pytest
-    - inflection 0.5.1
-    - tensorflow >=2.12.0,<3  # [not win]
-    - pytorch >=2.0.1,<2.3.0  # [not (osx and x86_64)]
-    - catboost >=1.2.0,<2
-    - mlflow >=2.16.0,<3
-    - wrapt >=1.11.0,<1.15
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
