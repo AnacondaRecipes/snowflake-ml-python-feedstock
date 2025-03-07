@@ -6,41 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/snowflakedb/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: b27a14ee0714e5c9ab7dd3a762e9e91ebc8a916706e138aaa69f7268f00b1451
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/snowflake_ml_python-{{ version }}.tar.gz
+  sha256: a5e00a002b80eb805e79c5396ad232976405728d4cf5223191e3e7ad671d1da5
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
-  skip: True # [py<39 or py>311]
-  # bazel not available on s390x
-  skip: True # [s390x]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: True # [py<39 or py>312]
 
-# It is sufficient to look at [requirements.yml](https://github.com/snowflakedb/snowflake-ml-python/blob/main/requirements.yml) and update
-# the `run` and `run_constrained` section accordingly.
-#
-# `version_requirements` or `version_requirements_conda` -> `run`
-# (`version_requirements` or `version_requirements_conda`) and `requirements_extra_tags` -> `run_constrained`
-#
-# This meta.yaml is up-to-date for defining `run` and `run_constrained` dependencies,
-# therefore it can be used to double check the runtime dependencies or as a starting point:
-# https://github.com/snowflakedb/snowflake-ml-python/blob/main/ci/conda_recipe/meta.yaml
-#
-# Snowflake marks the optional dependency with the use of the `requirements_extra_tags` tag. The tags refer to models used within *snowflake-ml*
-# which the user may or may not want to use together with the *snowflake* platform. They explained that because they control the environment and
-# features of the platform, it is not necessary to pull those extra requirements in the `run` section. It is ok to leave them in the
-# `run_constrained` section.
 requirements:
-  build:
-    # For win, git is installed on our runners.
-    # To run a local build, use m2-git or have git installed.
-    - git         # [not win]
-    # Bazel has rules to run Miniconda to build the package so make sure that the Miniconda and conda-libmamba-solver versions are correct, 
-    # because it can affect the build process, see https://github.com/snowflakedb/snowflake-ml-python/blob/main/third_party/rules_conda/conda.bzl
-    # upstream uses ==6.3.x but we have 6.2.0 or 6.5.0
-    - bazel 6.5.0
-    - {{ compiler('c') }}
   host:
     - python
     - pip
