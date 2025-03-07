@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/snowflake_ml_python-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: a5e00a002b80eb805e79c5396ad232976405728d4cf5223191e3e7ad671d1da5
 
 build:
@@ -14,7 +14,9 @@ build:
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True # [py<39 or py>312]
+  skip: True  # [py<39 or py>312]
+  # snowflake-snowpark-python, snowflake-connector-python, pytimeparse packages are not available on s390x target
+  skip: True  # [s390x]
 
 requirements:
   host:
