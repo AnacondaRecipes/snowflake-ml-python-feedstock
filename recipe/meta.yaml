@@ -14,7 +14,7 @@ build:
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<39]
+  skip: True  # [py<39 or py>312]
   # snowflake-snowpark-python, snowflake-connector-python, pytimeparse packages are not available on s390x target
   skip: True  # [s390x]
 
