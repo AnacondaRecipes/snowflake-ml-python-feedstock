@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.8.0" %}
+{% set version = "1.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 4f02ebb1ad0b77512121250951dc67f1627d8666815608f6e910e68f0a38779b
+  sha256: 5a3fe5e1578f56157b19939345270556d57208a47b47997a5180a253e390dfd9
 
 build:
   # The build number of this package should always start from 100
@@ -30,7 +30,7 @@ requirements:
     # For fsspec[http] in conda
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<5
-    - cloudpickle >=2.0.0
+    - cloudpickle >=2.0.0,<3
     - cryptography
     - fsspec >=2024.6.1,<2026
     - importlib_resources >=6.1.1,<7
