@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.8.1" %}
+{% set version = "1.8.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 5a3fe5e1578f56157b19939345270556d57208a47b47997a5180a253e390dfd9
+  sha256: 4e0bdd1dea18650bd02b01bfc067f3c6abddc6c94ad2c3fe57c5b635c194cec4
 
 build:
   # The build number of this package should always start from 100
@@ -15,8 +15,6 @@ build:
   number: 100
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: True  # [py<39 or py>312]
-  # snowflake-snowpark-python, snowflake-connector-python, pytimeparse packages are not available on s390x target
-  skip: True  # [s390x]
 
 requirements:
   host:
@@ -30,6 +28,7 @@ requirements:
     # For fsspec[http] in conda
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<5
+    - cachetools >=3.1.1,<6
     - cloudpickle >=2.0.0,<3
     - cryptography
     - fsspec >=2024.6.1,<2026
@@ -39,6 +38,7 @@ requirements:
     - pandas >=1.0.0,<3
     - pyarrow
     - pyjwt >=2.0.0,<3
+    - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     # requests is an extra dependency for fsspec[http]
     - requests
@@ -48,11 +48,10 @@ requirements:
     - scipy >=1.9,<2
     - snowflake-connector-python >=3.12.0,<4
     - snowflake-snowpark-python >=1.17.0,<2,!=1.26.0
+    - snowflake.core >=1.0.2,<2
     - sqlparse >=0.4,<1
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<3
-    - cachetools >=3.1.1,<6
-    - pytimeparse >=1.1.8,<2
   run_constrained:
     - catboost >=1.2.0,<2
     - lightgbm >=4.1.0,<5
