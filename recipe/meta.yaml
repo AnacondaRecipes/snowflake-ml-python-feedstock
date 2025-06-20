@@ -73,12 +73,21 @@ requirements:
 test:
   imports:
     - snowflake.ml
+    - snowflake.ml._internal
     - snowflake.ml.fileset
     - snowflake.ml.model
     - snowflake.ml.modeling
     - snowflake.ml.registry
     - snowflake.ml.utils
     - snowflake.cortex
+    - snowflake.ml.data
+    - snowflake.ml.dataset
+    - snowflake.ml.feature_store
+    - snowflake.ml.jobs
+    - snowflake.ml.lineage
+    - snowflake.ml.monitoring
+    - snowflake.ml.utils
+    - snowflake.ml.version
   commands:
     - pip check
     # check that pip gets the correct version
