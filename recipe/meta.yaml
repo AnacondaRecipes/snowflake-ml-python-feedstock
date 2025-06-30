@@ -92,7 +92,6 @@ test:
     # check that pip gets the correct version
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     # Tests/LLM testing is not possible without an active connection to Snowflake environment.
-    - pip
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
