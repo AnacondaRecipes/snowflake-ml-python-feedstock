@@ -1,6 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.8.6" %}
-
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 922db9cf6c718a5017888f928ed2e042c4422869c59fcd1c936574a2583d4fdb
+  sha256: 4a1580c0399e80777975ad183d5e857474857b6ba5b85c8df47e0d7facbfac0e
 
 build:
   # The build number of this package should always start from 100
@@ -92,7 +91,7 @@ test:
     - pip check
     # check that pip gets the correct version
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-  requires:
+    # Tests/LLM testing is not possible without an active connection to Snowflake environment.
     - pip
 
 about:
