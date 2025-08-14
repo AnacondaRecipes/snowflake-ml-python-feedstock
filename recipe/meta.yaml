@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.9.1" %}
+{% set version = "1.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 35ef16059f8b9b637b1061b8243032f91f9036d321432bb3f736a43bf2e92afe
+  sha256: 1e4f68730e3fc7b8767d9976a9fff863221778cde1460f5e9c1a20625d01720e
 
 build:
   # The build number of this package should always start from 100
@@ -55,6 +55,7 @@ requirements:
     - tqdm <5
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<3
+    - platformdirs <5
   run_constrained:
     - altair >=5,<6
     - catboost >=1.2.0,<2
@@ -68,7 +69,7 @@ requirements:
     - tensorflow >=2.17.0,<3
     - tokenizers >=0.15.1,<1
     - torchdata >=0.4,<1
-    - transformers >=4.39.3,<5
+    - transformers >=4.39.3,<5,!=4.51.3
 
 test:
   imports:
