@@ -19,7 +19,8 @@ build:
 requirements:
   host:
     - python
-    - pip
+    # !=25.2 to fix random windows issue, remove it in the next bump
+    - pip !=25.2
     - setuptools >=61.0
     - wheel
   run:
@@ -95,7 +96,8 @@ test:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     # Tests/LLM testing is not possible without an active connection to Snowflake environment.
   requires:
-    - pip
+    # !=25.2 to fix random windows issue, remove it in the next bump
+    - pip !=25.2
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
