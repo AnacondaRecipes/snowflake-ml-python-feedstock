@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.11.0" %}
+{% set version = "1.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 1e4f68730e3fc7b8767d9976a9fff863221778cde1460f5e9c1a20625d01720e
+  sha256: 8eb9b28a9d1460f6c283989f1e2a3245dd2994d235417523475886306acf8e80
 
 build:
   # The build number of this package should always start from 100
@@ -38,24 +38,24 @@ requirements:
     - numpy >=1.23,<3
     - packaging >=20.9,<25
     - pandas >=2.1.4,<3
-    - pyarrow
+    - platformdirs <5
+    - pyarrow <19.0.0
     - pydantic >=2.8.2,<3
     - pyjwt >=2.0.0,<3
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     - retrying >=1.3.3,<2
     - s3fs >=2024.6.1,<2026
-    - scikit-learn <1.6
+    - scikit-learn <1.7
     - scipy >=1.9,<2
     - shap >=0.46.0,<1
-    - snowflake-connector-python >=3.15.0,<4
+    - snowflake-connector-python >=3.16.0,<4
     - snowflake-snowpark-python >=1.17.0,<2,!=1.26.0
     - snowflake.core >=1.0.2,<2
     - sqlparse >=0.4,<1
     - tqdm <5
     - typing-extensions >=4.1.0,<5
     - xgboost >=1.7.3,<3
-    - platformdirs <5
   run_constrained:
     - altair >=5,<6
     - catboost >=1.2.0,<2
@@ -71,31 +71,32 @@ requirements:
     - torchdata >=0.4,<1
     - transformers >=4.39.3,<5,!=4.51.3
 
-test:
-  imports:
-    - snowflake.ml
-    - snowflake.ml._internal
-    - snowflake.ml.fileset
-    - snowflake.ml.model
-    - snowflake.ml.modeling
-    - snowflake.ml.registry
-    - snowflake.ml.utils
-    - snowflake.cortex
-    - snowflake.ml.data
-    - snowflake.ml.dataset
-    - snowflake.ml.feature_store
-    - snowflake.ml.jobs
-    - snowflake.ml.lineage
-    - snowflake.ml.monitoring
-    - snowflake.ml.utils
-    - snowflake.ml.version
-  commands:
-    - pip check
-    # check that pip gets the correct version
-    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # Tests/LLM testing is not possible without an active connection to Snowflake environment.
-  requires:
-    - pip
+# Skip windows due to probles with CI after migration. Double check in the next update.
+test:                                                                 # [not win]
+  imports:                                                            # [not win]
+    - snowflake.ml                                                    # [not win]
+    - snowflake.ml._internal                                          # [not win]
+    - snowflake.ml.fileset                                            # [not win]
+    - snowflake.ml.model                                              # [not win]
+    - snowflake.ml.modeling                                           # [not win]
+    - snowflake.ml.registry                                           # [not win]
+    - snowflake.ml.utils                                              # [not win]
+    - snowflake.cortex                                                # [not win]
+    - snowflake.ml.data                                               # [not win]
+    - snowflake.ml.dataset                                            # [not win]
+    - snowflake.ml.feature_store                                      # [not win]
+    - snowflake.ml.jobs                                               # [not win]
+    - snowflake.ml.lineage                                            # [not win]
+    - snowflake.ml.monitoring                                         # [not win]
+    - snowflake.ml.utils                                              # [not win]
+    - snowflake.ml.version                                            # [not win]
+  commands:                                                           # [not win]
+    - pip check                                                       # [not win]
+    # check that pip gets the correct version                         # [not win]
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"   # [not win]
+    # Tests/LLM testing is not possible without an active connection to Snowflake environment.              # [not win]
+  requires:                                                           # [not win]
+    - pip                                                             # [not win]
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
