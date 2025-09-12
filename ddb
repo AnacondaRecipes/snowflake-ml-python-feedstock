@@ -1,0 +1,319 @@
+{
+    "snowflake-ml": [
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py310hecd8cb5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py311hecd8cb5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py39hecd8cb5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py311hca03da5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-arm64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py39hca03da5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-arm64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py310hca03da5_0",
+            "channel": "sfe1ed40",
+            "subdir": "osx-arm64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py39haa95532_0",
+            "channel": "sfe1ed40",
+            "subdir": "win-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py311haa95532_0",
+            "channel": "sfe1ed40",
+            "subdir": "win-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py310haa95532_0",
+            "channel": "sfe1ed40",
+            "subdir": "win-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py310h06a4308_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py39h06a4308_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py311h06a4308_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py310hd43f75c_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-aarch64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py311hd43f75c_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-aarch64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        },
+        {
+            "name": "snowflake-ml",
+            "version": "0.10.0",
+            "filename": "snowflake-ml-0.10.0-py39hd43f75c_0",
+            "channel": "sfe1ed40",
+            "subdir": "linux-aarch64",
+            "depends_on": "snowflake-ml-python 1.4.0",
+            "compatible_run_deps": false,
+            "deprecated": false,
+            "supported": true,
+            "feedstock": null,
+            "summary": "Snowflake Python API",
+            "dev_url": "https://pypi.org/project/snowflake",
+            "difficulty": "xs",
+            "service_level_objective": {
+                "time": "month"
+            },
+            "latest_upstream_version": "1.7.0",
+            "latest_upstream_retrieved_at": "2025-08-01T12:01:39.990044+00:00",
+            "recommended_action": "ignore"
+        }
+    ]
+}

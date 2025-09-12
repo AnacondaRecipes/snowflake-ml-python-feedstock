@@ -62,33 +62,33 @@ requirements:
     - keras >=2.0.0,<4
     - lightgbm >=4.1.0,<5
     - mlflow >=2.16.0,<3
-    - pytorch >=2.0.1,<3
     - sentence-transformers >=2.7.0,<4
     - sentencepiece >=0.1.95,<0.2.0
     - streamlit >=1.30.0,<2
     - tensorflow >=2.17.0,<3
     - tokenizers >=0.15.1,<1
+    - pytorch >=2.0.1,<3
     - torchdata >=0.4,<1
     - transformers >=4.39.3,<5,!=4.51.3
 
-test:
-  imports:
-    - snowflake.ml
-    - snowflake.ml._internal
-    - snowflake.ml.fileset
-    - snowflake.ml.model
-    - snowflake.ml.modeling
-    - snowflake.ml.registry
-    - snowflake.ml.utils
-    - snowflake.cortex
-    - snowflake.ml.data
-    - snowflake.ml.dataset
-    - snowflake.ml.feature_store
-    - snowflake.ml.jobs
-    - snowflake.ml.lineage
-    - snowflake.ml.monitoring
-    - snowflake.ml.utils
-    - snowflake.ml.version
+test:                                                                 # [not win]
+  imports:                                                            # [not win]
+    - snowflake.ml                                                    # [not win]
+    - snowflake.ml._internal                                          # [not win]
+    - snowflake.ml.fileset                                            # [not win]
+    - snowflake.ml.model                                              # [not win]
+    - snowflake.ml.modeling                                           # [not win]
+    - snowflake.ml.registry                                           # [not win]
+    - snowflake.ml.utils                                              # [not win]
+    - snowflake.cortex                                                # [not win]
+    - snowflake.ml.data                                               # [not win]
+    - snowflake.ml.dataset                                            # [not win]
+    - snowflake.ml.feature_store                                      # [not win]
+    - snowflake.ml.jobs                                               # [not win]
+    - snowflake.ml.lineage                                            # [not win]
+    - snowflake.ml.monitoring                                         # [not win]
+    - snowflake.ml.utils                                              # [not win]
+    - snowflake.ml.version                                            # [not win]
   commands:
     - pip check
     # check that pip gets the correct version
