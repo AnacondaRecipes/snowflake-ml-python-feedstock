@@ -71,6 +71,7 @@ requirements:
     - torchdata >=0.4,<1
     - transformers >=4.39.3,<5,!=4.51.3
 
+# Skip windows due to probles with CI after migration. Double check in the next update.
 test:                                                                 # [not win]
   imports:                                                            # [not win]
     - snowflake.ml                                                    # [not win]
