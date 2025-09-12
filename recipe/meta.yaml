@@ -89,13 +89,13 @@ test:                                                                 # [not win
     - snowflake.ml.monitoring                                         # [not win]
     - snowflake.ml.utils                                              # [not win]
     - snowflake.ml.version                                            # [not win]
-  commands:
-    - pip check
-    # check that pip gets the correct version
-    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # Tests/LLM testing is not possible without an active connection to Snowflake environment.
-  requires:
-    - pip
+  commands:                                                           # [not win]
+    - pip check                                                       # [not win]
+    # check that pip gets the correct version                         # [not win]
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"   # [not win]
+    # Tests/LLM testing is not possible without an active connection to Snowflake environment.              # [not win]
+  requires:                                                           # [not win]
+    - pip                                                             # [not win]
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
