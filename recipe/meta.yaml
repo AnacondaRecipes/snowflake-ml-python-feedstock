@@ -1,13 +1,13 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.14.0" %}
+{% set version = "1.15.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 9d02012bace3355bab17a6e3a2183efc4b16d24a4436a1f1bb62f1454ef9619d
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: aa5a85b2f02d91a2e82ec54dbfbb703ba365363ccc317839261e69cd072c881b
 
 build:
   # The build number of this package should always start from 100
@@ -21,10 +21,8 @@ requirements:
     - python
     - pip
     - setuptools >=61.0
-    - wheel
   run:
     - python
-    - absl-py >=0.15,<2
     # For fsspec[http] in conda
     - aiohttp !=4.0.0a0,!=4.0.0a1
     - anyio >=3.5.0,<5
