@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.16.0" %}
+{% set version = "1.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 71a939f14796bb67932dcc94f46f44b5e6e0c1a0c91e68b393d4591d31cc98ea
+  sha256: 3b0ab90199570b8904bcff6afa6dfdbcd184c904f192846e804c48a63d6a13f7
 
 build:
   # The build number of this package should always start from 100
@@ -47,13 +47,13 @@ requirements:
     - scikit-learn <1.8
     - scipy >=1.9,<2
     - shap >=0.46.0,<1
-    - snowflake-connector-python >=3.16.0,<4
+    - snowflake-connector-python >=3.17.0,<4
     - snowflake-snowpark-python >=1.17.0,<2,!=1.26.0
     - snowflake.core >=1.0.2,<2
     - sqlparse >=0.4,<1
     - tqdm <5
     - typing-extensions >=4.1.0,<5
-    - xgboost >=1.7.3,<3
+    - xgboost <4
   run_constrained:
     - altair >=5,<6
     - catboost >=1.2.0,<2
