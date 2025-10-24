@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.17.0" %}
+{% set version = "1.18.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 3b0ab90199570b8904bcff6afa6dfdbcd184c904f192846e804c48a63d6a13f7
+  sha256: 70f70fae0bcc9874acf44cbcd6c37ab53fc714a2dd7b61cc3dea5e48d2825bf5
 
 build:
   # The build number of this package should always start from 100
@@ -60,6 +60,7 @@ requirements:
     - keras >=2.0.0,<4
     - lightgbm >=4.1.0,<5
     - mlflow >=2.16.0,<3
+    - prophet >=1.1.0,<2
     - sentence-transformers >=2.7.0,<4
     - sentencepiece >=0.1.95,<0.2.0
     - streamlit >=1.30.0,<2
