@@ -95,6 +95,8 @@ test:
     # Tests/LLM testing is not possible without an active connection to Snowflake environment.
   requires:
     - pip
+    # tqdm 4.67.3 requires colorama, which is not installed.
+    - colorama  # [win]
 
 about:
   home: https://github.com/snowflakedb/snowflake-ml-python
