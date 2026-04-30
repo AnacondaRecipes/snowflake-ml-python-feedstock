@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.36.0" %}
+{% set version = "1.37.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 390d66171c006a8976bb60ff0e5e2500ac84e089cb3087aff5cccfb3dcc99fff
+  sha256: 35777907f1cb614de9ee7351433fbc8be11b47827ec080dd7c72bf492bffa66f
 
 build:
   # The build number of this package should always start from 100
@@ -33,6 +33,7 @@ requirements:
     - aiohttp !=4.0.0a0,!=4.0.0a1
     # requests is an extra dependency for fsspec[http]
     - requests
+    - h2 >=4.3.0,<5
     - importlib_resources >=6.1.1,<7
     - numpy >=1.23,<3
     - packaging >=20.9,<26
