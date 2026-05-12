@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.37.0" %}
+{% set version = "1.38.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 35777907f1cb614de9ee7351433fbc8be11b47827ec080dd7c72bf492bffa66f
+  sha256: e8e2beca8d6ab375ec688595c648972b5751c31e17665eb788f4db114defddcb
 
 build:
   # The build number of this package should always start from 100
@@ -45,7 +45,6 @@ requirements:
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     - retrying >=1.3.3,<2
-    - s3fs >=2024.6.1,<2026
     - scikit-learn <1.8
     - scipy >=1.9,<2
     - shap >=0.46.0,<1
