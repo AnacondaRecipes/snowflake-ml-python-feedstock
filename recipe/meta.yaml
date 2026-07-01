@@ -12,7 +12,7 @@ source:
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
-  number: 100
+  number: 101
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<39 or py>313]
 
@@ -54,6 +54,15 @@ requirements:
     - tqdm <5
     - typing-extensions >=4.1.0,<5
     - xgboost <4
+    # Import chain (dependency chain causing the failure):
+    # snowflake.ml.model → imports model_version_impl
+    # model_version_impl → imports _packager.model_handlers.snowmlmodel
+    # snowmlmodel.py → import shap
+    # shap/__init__.py → shap/_explanation.py
+    # _explanation.py → shap/utils/__init__.py
+    # shap/utils/__init__.py → shap/utils/_clustering.py
+    # _clustering.py → from numba import njit → fails, numba not installed
+    - numba
   run_constrained:
     - altair >=5,<7
     - catboost >=1.2.0,<2
