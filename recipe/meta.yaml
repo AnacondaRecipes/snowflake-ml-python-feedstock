@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.44.0" %}
+{% set version = "1.46.0" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 7b767b0c1ff67fce4030c0bed14f30f52db2977b6d2ad2d3d13170335c3c6828
+  sha256: af02a6383ad2f9212a8cf30e988d53cf402af981e96e3ed440c25881dff3f488
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
-  number: 101
+  number: 100
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<39 or py>313]
 
