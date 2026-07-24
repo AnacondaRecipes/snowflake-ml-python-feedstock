@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.46.0" %}
+{% set version = "1.48.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: af02a6383ad2f9212a8cf30e988d53cf402af981e96e3ed440c25881dff3f488
+  sha256: fbe59ee08cbe954be2720d495fc2706a480746ff2b576ef52df5864de69323af
 
 build:
   # The build number of this package should always start from 100
@@ -35,6 +35,7 @@ requirements:
     - requests
     - h2 >=4.3.0,<5
     - importlib_resources >=6.1.1,<7
+    - jinja2 >=3.1.0,<4
     - numpy >=1.23,<3
     - packaging >=20.9,<26
     - pandas >=2.1.4,<3
@@ -45,7 +46,7 @@ requirements:
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     - retrying >=1.3.3,<2
-    - scikit-learn <1.8
+    - scikit-learn <1.9
     - scipy >=1.9,<2
     - shap >=0.46.0,<1
     - snowflake-connector-python >=3.17.3,<5
