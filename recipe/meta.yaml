@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.54.0" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: e9810d71fe091e026e0c3052f152e92049e49f8c2f1cc1126bbc93171a4a4fef
+  sha256: 507db32cc994ca2825b48e4a64cff4bb425e53d7edab612101a83bbf28830cd4
 
 build:
   # The build number of this package should always start from 100
   # for new versions. For more information ask the CODEOWNERS.
   number: 100
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [py<39 or py>313]
+  skip: true  # [py<310 or py>314]
 
 requirements:
   host:
@@ -27,12 +27,11 @@ requirements:
     - anyio >=3.5.0,<5
     - cachetools >=3.1.1
     - cloudpickle >=2.0.0
-    - fsspec >=2024.6.1,<2026
+    - fsspec >=2024.6.1,<2027
     # For fsspec[http] in conda
     - aiohttp !=4.0.0a0,!=4.0.0a1
     # requests is an extra dependency for fsspec[http]
     - requests
-    - h2 >=4.3.0,<5
     - importlib_resources >=6.1.1,<7
     - jinja2 >=3.1.0,<4
     - numpy >=1.23,<3
@@ -45,24 +44,11 @@ requirements:
     - pytimeparse >=1.1.8,<2
     - pyyaml >=6.0,<7
     - retrying >=1.3.3,<2
-    - scikit-learn <1.9
-    - scipy >=1.9,<2
-    - shap >=0.46.0,<1
     - snowflake-connector-python >=3.17.3,<5
-    - snowflake-snowpark-python >=1.17.0,<2,!=1.26.0
+    - snowflake-snowpark-python >=1.43.0,<2
     - sqlparse >=0.4,<1
     - tqdm <5
     - typing-extensions >=4.1.0,<5
-    - xgboost <4
-    # Import chain (dependency chain causing the failure):
-    # snowflake.ml.model → imports model_version_impl
-    # model_version_impl → imports _packager.model_handlers.snowmlmodel
-    # snowmlmodel.py → import shap
-    # shap/__init__.py → shap/_explanation.py
-    # _explanation.py → shap/utils/__init__.py
-    # shap/utils/__init__.py → shap/utils/_clustering.py
-    # _clustering.py → from numba import njit → fails, numba not installed
-    - numba
   run_constrained:
     - altair >=5,<7
     - catboost >=1.2.0,<2
@@ -78,6 +64,11 @@ requirements:
     - pytorch >=2.0.1,<3
     - torchdata >=0.4,<1
     - transformers >=4.39.3,<6,!=4.51.3
+    - h2 >=4.3.0,<5
+    - httpx >=0.28.1,<1
+    - scikit-learn <2
+    - shap >=0.46.0,<1
+    - xgboost <4
 
 test:
   imports:
