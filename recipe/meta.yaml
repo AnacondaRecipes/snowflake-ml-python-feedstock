@@ -1,5 +1,5 @@
 {% set name = "snowflake-ml-python" %}
-{% set version = "1.51.0" %}
+{% set version = "1.54.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 06f4130fe6f13916b61595c3c5a10a34c6481fb68f02788a1224bbcc1d66a19e
+  sha256: e9810d71fe091e026e0c3052f152e92049e49f8c2f1cc1126bbc93171a4a4fef
 
 build:
   # The build number of this package should always start from 100
@@ -83,6 +83,7 @@ test:
   imports:
     - snowflake.ml
     - snowflake.ml._internal
+    - snowflake.ml.experiment
     - snowflake.ml.fileset
     - snowflake.ml.model
     - snowflake.ml.modeling
